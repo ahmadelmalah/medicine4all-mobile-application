@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 //main controller
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, Announcement) {
   // Declaring objects that store data from main modals
   $scope.loginData = {};
   $scope.Announcements_POST_Data = {};
@@ -42,10 +42,13 @@ angular.module('starter.controllers', [])
     }, 1000);
   };
   $scope.doAnnouncements_POST = function() {
-    $timeout(function() {
-      alert($scope.Announcements_POST_Data.desc);
+      var newAnnouncement = new Announcement();
+       newAnnouncement.desc = $scope.Announcements_POST_Data.desc;
+       newAnnouncement.$save(function(announcement){
+         alert('Your announcement is saved');
+       });
+
       $scope.closeAnnouncements_POST();
-    }, 1000);
   };
 
 
