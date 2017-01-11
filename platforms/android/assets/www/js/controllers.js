@@ -1,44 +1,55 @@
 angular.module('starter.controllers', [])
 
+//main controller
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  // Form data for the login modal
+  // Declaring objects that store data from main modals
   $scope.loginData = {};
+  $scope.Announcements_POST_Data = {};
 
-  // Create the login modal that we will use later
+  // Bulk of modals that could be invoked from the main menu (main modals)
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
+  $ionicModal.fromTemplateUrl('templates/Announcements_POST.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modalAnnouncements_POST = modal;
+  });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
+  // All required functions for opening modals
   $scope.login = function() {
     $scope.modal.show();
   };
+  $scope.Announcements_POST = function() {
+    $scope.modalAnnouncements_POST.show();
+  };
 
-  // Perform the login action when the user submits the login form
+  // All required functions for closing modals
+  $scope.closeLogin = function() {
+    $scope.modal.hide();
+  };
+  $scope.closeAnnouncements_POST = function() {
+    $scope.modalAnnouncements_POST.hide();
+  };
+
+  // Perform the modals action
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
   };
+  $scope.doAnnouncements_POST = function() {
+    $timeout(function() {
+      alert($scope.Announcements_POST_Data.desc);
+      $scope.closeAnnouncements_POST();
+    }, 1000);
+  };
+
+
+
 })
 
 .controller('PlaylistsCtrl', function($scope) {
