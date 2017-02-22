@@ -43,7 +43,9 @@ angular.module('starter.controllers', [])
   };
   $scope.doAnnouncements_POST = function() {
       var newAnnouncement = new Announcement();
-       newAnnouncement.desc = $scope.Announcements_POST_Data.desc;
+      newAnnouncement.desc = $scope.Announcements_POST_Data.desc;
+      newAnnouncement.area_id = 1;
+      newAnnouncement.address = 'hey';
        newAnnouncement.$save(function(announcement){
          alert('Your announcement is saved');
        });

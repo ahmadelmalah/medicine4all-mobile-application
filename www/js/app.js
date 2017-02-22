@@ -32,42 +32,36 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.profile', {
+      url: '/profile',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/profile.html'
         }
       }
     })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
+    // .state('app.announcements', {
+    //     url: '/announcements',
+    //     views: {
+    //       'menuContent': {
+    //         templateUrl: 'templates/announcements.html'
+    //       }
+    //     }
+    //   })
+
+    .state('appa', {
+      url: '/appa',
+      abstract: true,
+      templateUrl: 'templates/menu_user.html',
+      controller: 'AppCtrl',
+        'menu-left@tab': {
+          templateUrl: 'templates/menu_user.html'
+        }
+      })
+
+
+  ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/profile');
 });
