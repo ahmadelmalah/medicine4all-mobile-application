@@ -50,14 +50,13 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     //     }
     //   })
 
-    .state('appa', {
-      url: '/appa',
-      abstract: true,
-      templateUrl: 'templates/menu_user.html',
-      controller: 'AppCtrl',
-        'menu-left@tab': {
-          templateUrl: 'templates/menu_user.html'
-        }
+    .state('app.announcementsPOST', {
+      url: '/announcementsPOST',
+      views: {
+            'menuContent': {
+              templateUrl: 'templates/Announcements_POST.html'
+            }
+            }
       })
 
 

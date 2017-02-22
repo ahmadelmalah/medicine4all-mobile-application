@@ -1,13 +1,15 @@
-<ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">الإعلان عن دواء جديد</h1>
-    <div class="buttons">
-      <button class="button" ng-click="closeAnnouncements_POST()">الغاء</button>
-    </div>
-  </ion-header-bar>
+<ion-view view-title="الإعلان عن دواء جديد">
   <ion-content>
     <form ng-submit="doAnnouncements_POST()">
       <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Area</span>
+          <input type="text" ng-model="Announcements_POST_Data.area_id">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Address</span>
+          <input type="text" ng-model="Announcements_POST_Data.address">
+        </label>
         <label class="item item-input">
           <span class="input-label">Description</span>
           <input type="text" ng-model="Announcements_POST_Data.desc">
@@ -18,4 +20,4 @@
       </div>
     </form>
   </ion-content>
-</ion-modal-view>
+</ion-view>

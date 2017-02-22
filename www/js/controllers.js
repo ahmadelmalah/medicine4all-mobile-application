@@ -44,10 +44,13 @@ angular.module('starter.controllers', [])
   $scope.doAnnouncements_POST = function() {
       var newAnnouncement = new Announcement();
       newAnnouncement.desc = $scope.Announcements_POST_Data.desc;
-      newAnnouncement.area_id = 1;
-      newAnnouncement.address = 'hey';
+      newAnnouncement.area_id = parseInt($scope.Announcements_POST_Data.area_id);
+      newAnnouncement.address = $scope.Announcements_POST_Data.address;
        newAnnouncement.$save(function(announcement){
          alert('Your announcement is saved');
+         $scope.Announcements_POST_Data.desc = '';
+         $scope.Announcements_POST_Data.area_id = 0;
+         $scope.Announcements_POST_Data.address = '';
        });
 
       $scope.closeAnnouncements_POST();
