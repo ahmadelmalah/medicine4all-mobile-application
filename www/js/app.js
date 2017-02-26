@@ -52,6 +52,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
 
     .state('app.announcementsPOST', {
       url: '/announcementsPOST',
+      controller: 'AppCtrl',
       views: {
             'menuContent': {
               templateUrl: 'templates/Announcements_POST.html'

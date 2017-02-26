@@ -56,6 +56,10 @@ angular.module('starter.controllers', [])
       $scope.closeAnnouncements_POST();
   };
 
+  $scope.getCities = function() {
+    alert('cities');
+  }
+
 
 
 })

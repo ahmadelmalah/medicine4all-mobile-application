@@ -7,8 +7,16 @@ angular.module('starter.services', ['ngResource'])
       //     method: 'PUT'
       // }
   });
+}])
 
+.factory('Country', ['$resource', 'apiURL', function ($resource, apiURL) {
+  return $resource(apiURL + "countries/:id", null, {
+  });
+}])
 
+.factory('City', ['$resource', 'apiURL', function ($resource, apiURL) {
+  return $resource(apiURL + "cities/:id", null, {
+  });
 }])
 
 
